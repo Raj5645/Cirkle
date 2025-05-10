@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Body.css";
 import SubmitBody from "./SubmitBody";
+import logo_at_body from "../../assets/CirkleLogo/logo_at_body.png"
 
 function Body() {
   const [show, setShow] = useState(true);
@@ -15,8 +16,7 @@ function Body() {
       {show ? (
         <>
           <div className="body-header">
-            <p className="body-title">Cirkle</p>
-            <p className="body-subtitle">An ecosystem for events</p>
+            <img src={logo_at_body} alt="logo_at_body"/>
             <hr class="body-divider" />
             <p className="body-tagline">Beyond Tickets. Built for Impact.</p>
           </div>

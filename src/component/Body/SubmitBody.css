@@ -1,67 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Ruda:wght@500;700&display=swap');
 
-/* .submitBody {
-  background: #181818;
+.submitBody {
+  position: relative;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(30,201,252,0.10);
   padding: 32px 28px 28px 28px;
-  max-width: 420px;         /* Slightly increased width */
-  /* margin: 40px auto;
+  max-width: 420px;
+  margin: 40px auto;
+  background:
+    linear-gradient(#181818, #181818) padding-box, /* Inner background */
+    linear-gradient(120deg, #3b82f6, #06b6d4, transparent 90%) border-box; /* Border gradient */
+  border: 3px solid transparent; /* Required for border-box gradient */
+  box-shadow: 0 4px 24px rgba(30,201,252,0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
-} */ 
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.4s ease-out;
+}
 
-.submitBody {
-    position: relative;
-    border-radius: 18px;
-    padding: 32px 28px 28px 28px;
-    max-width: 420px;
-    margin: 40px auto;
-    background:
-      linear-gradient(#181818, #181818) padding-box, /* Inner background */
-      linear-gradient(120deg, #3b82f6, #06b6d4, transparent 90%) border-box; /* Border gradient */
-    border: 3px solid transparent; /* Required for border-box gradient */
-    box-shadow: 0 4px 24px rgba(30,201,252,0.10);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .submitBody-info {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 10px;                /* Less vertical space between inputs */
+  gap: 22px; /* Proper spacing between inputs */
 }
 
 .submitBody-info input {
   font-family: 'Ruda', Arial, sans-serif;
   font-size: 1.1rem;
-  padding: 10px 16px;
-  border: 2px solid #2dd4fc;        /* Brighter border */
+  padding: 12px 16px;
+  border: 2px solid #2dd4fc;
   border-radius: 10px;
-  background: #23272f;
+  background-color: rgba(35, 39, 47, 0.8);
   color: #fff;
   outline: none;
-  transition: box-shadow 0.2s, background 0.2s, border-color 0.2s;
+  transition: all 0.2s ease;
   box-shadow: 0 1px 6px rgba(30,201,252,0.10);
-  width: 100%;                      /* Full width of container */
-  margin-bottom: 0;                 /* No extra margin */
+  width: 100%;
 }
 
 .submitBody-info input:focus {
-  background: #232f3e;
-  border-color: #3b82f6;            /* Even brighter on focus */
-  box-shadow: 0 0 0 2px #3b82f6;
+  background-color: rgba(35, 47, 62, 0.9);
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+.submitBody-info input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Remove unnecessary break tags */
+.submitBody-info br {
+  display: none;
 }
 
 .submitBody-button {
-  margin-top: 18px;                 /* Less space above button */
+  margin-top: 32px;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .submitBody-button button {
@@ -69,18 +78,32 @@
   color: #fff;
   font-family: 'Ruda', Arial, sans-serif;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   border: none;
   border-radius: 10px;
-  padding: 10px 32px;
+  padding: 12px 32px;
+  width: 100%;
   cursor: pointer;
-  box-shadow: 0 2px 12px rgba(30,201,252,0.15);
-  transition: filter 0.18s, box-shadow 0.18s, transform 0.18s;
+  box-shadow: 0 2px 12px rgba(30,201,252,0.20);
+  transition: all 0.18s ease;
 }
 
 .submitBody-button button:hover,
 .submitBody-button button:focus {
   filter: brightness(1.08);
-  box-shadow: 0 4px 24px rgba(30,201,252,0.22);
-  transform: scale(1.04);
+  box-shadow: 0 4px 24px rgba(30,201,252,0.25);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+  .submitBody {
+    max-width: 90%;
+    padding: 24px 20px;
+  }
+  
+  .submitBody-info input {
+    font-size: 1rem;
+    padding: 10px 14px;
+  }
 }

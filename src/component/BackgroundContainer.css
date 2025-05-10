@@ -1,24 +1,22 @@
 .background-container {
     position: fixed; /* Fix to viewport */
-    top: 74px; /* Height of navbar */
+    top: 0;
     left: 0;
     width: 100vw;
-    height: calc(100vh - 74px); /* Fill below navbar */
-    z-index: 0; /* Behind main content, above body */
-    overflow: hidden; /* Prevent scrollbars */
-    background: #111; /* Fallback background color */
-    pointer-events: none; /* Allow clicks through */
-}
-
-.background-image {
+    height: 100vh;
+    z-index: -1; /* Behind all content */
+    overflow: hidden;
+    background: #111;
+  }
+  
+  .background-image {
     position: absolute;
-    width: 180px; /* Larger for background effect */
+    width: 180px;
     height: 120px;
     object-fit: cover;
     border-radius: 12px;
     opacity: 0.55;
-    filter: blur(3px) brightness(0.7);
-    z-index: 0;
-    pointer-events: none;
+    filter: blur(2px) brightness(0.6);
     transition: opacity 0.3s ease;
-}
+    pointer-events: none;
+  }

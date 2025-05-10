@@ -1,11 +1,11 @@
 import React from 'react'
 import "./CirkleLogo.css"
+import logo_at_navbar from "../../assets/CirkleLogo/logo_at_navbar.png"
 
 function CirkleLogo() {
   return (
     <div className="cirkleLogo">
-        <p className="cirkleLogo-title">Cirkle</p>
-        <p className="cirkleLogo-subtitle">An ecosystem for events</p>
+        <img src={logo_at_navbar} alt="logo_at_navbar"/>
     </div>
   )
 }

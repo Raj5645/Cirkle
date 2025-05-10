@@ -202,6 +202,7 @@ function EventPage() {
         >
           <img src={eventimg} alt="eventimg"/>
           Event Detail
+          {isActive("eventdetail") && <span className="metrics-tag">7.95 × 5.87</span>}
         </button>
         <button 
           className={isActive("liverevenue") ? "active" : ""}

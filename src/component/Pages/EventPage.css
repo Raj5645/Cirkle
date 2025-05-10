@@ -1,82 +1,125 @@
-/* Import Ruda font */
-@import url('https://fonts.googleapis.com/css2?family=Ruda:wght@400;500;600;700&display=swap');
-
-/* Main container for the sidebar */
-.leftSide-content {
-  width: 165.96px;
-  height: auto;
-  min-height: 477.11px;
-  top: 109px;
-  left: 21px;
-  border-radius: 12px;
-  padding: 13px 10px 13px 13px;
-  gap: 10px;
-  background-color: #1E1E1E;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.15);
-}
-
-/* Base style for all sidebar buttons */
-.leftSide-content button {
-  width: 142.96px;
-  height: 31px;
-  border-radius: 6px;
-  padding: 5px 8px;
-  gap: 1px;
-  background-color: transparent;
-  border: none;
-  color: #949494;
-  font-family: 'Ruda', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 150%;
-  letter-spacing: -0.04em;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-/* Active/selected button style */
-.leftSide-content button.active {
-  background: linear-gradient(92.72deg, #3479FF -20.69%, #22E6CE 109.27%);
-  color: white;
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.06);
-}
-
-/* Hover effect for buttons */
-.leftSide-content button:hover:not(.active) {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-/* Style for the icon inside buttons */
-.leftSide-content button img {
-  width: 16px;
-  height: 16px;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-/* Title button (Live and Loud) */
-.leftSide-content button:first-child {
-  font-weight: 600;
-  font-size: 16px;
-  color: white;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-/* Add back arrow to the title */
-.leftSide-content button:first-child::after {
-  content: "←";
-  font-size: 18px;
-}
-
-/* Layout for the main content area */
-.rightSide-content {
-  margin-left: 195.96px; /* leftSide width + left position + some spacing */
-  padding: 20px;
-}
+/* Main container styling */
+.event-page-container {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 110px); /* Adjust based on your navbar and footer height */
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Sidebar styling */
+  .leftSide-content {
+    width: 240px;
+    background-color: #1a1a1a; /* Deeper gray color */
+    border-radius: 16px;
+    margin: 10px;
+    padding: 0;
+    overflow-y: auto;
+    height: calc(100vh - 110px); /* Adjust based on your navbar and footer */
+    position: sticky;
+    top: 60px; /* Adjust based on navbar height */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Make sidebar scrollable independently */
+  .leftSide-content::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .leftSide-content::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 10px;
+  }
+  
+  /* Button styling */
+  .leftSide-content button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 5px;
+  }
+  
+  .leftSide-content button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+  
+  .leftSide-content button img {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    opacity: 0.7;
+  }
+  
+  /* Active button styling */
+  .leftSide-content button.active {
+    background-color: #0e9de9;
+    color: #fff;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
+  }
+  
+  .leftSide-content button.active img {
+    opacity: 1;
+  }
+  
+  /* First button (Logo button) styling */
+  .leftSide-content button:first-child {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Main content area */
+  .rightSide-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    margin-left: 10px;
+  }
+  
+  /* Blue tag for metrics (like 7.95 x 5.87) */
+  .metrics-tag {
+    background-color: #0e9de9;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .event-page-container {
+      flex-direction: column;
+    }
+    
+    .leftSide-content {
+      width: calc(100% - 20px);
+      position: relative;
+      max-height: 300px;
+      margin: 10px;
+      top: 0;
+    }
+    
+    .rightSide-content {
+      margin-left: 0;
+      width: 100%;
+      padding: A10px;
+    }
+  }

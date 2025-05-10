@@ -1,28 +1,28 @@
 import React, { useState } from "react";
-import "./SubmitBody.css"
-import {useNavigate}  from "react-router-dom"
+import "./SubmitBody.css";
+import { useNavigate } from "react-router-dom";
 
 function SubmitBody() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    // try {
-
-    // } catch (error) {
-
-    // }
-
-    setName("");
-    setEmail("");
-    setPassword("");
-
-    navigate("/eventpage");
+    
+    setIsLoading(true);
+    
+    // Simulate API call with timeout
+    setTimeout(() => {
+      setName("");
+      setEmail("");
+      setPassword("");
+      navigate("/eventpage");
+      setIsLoading(false);
+    }, 800);
   }
 
   return (
@@ -34,25 +34,30 @@ function SubmitBody() {
             value={name}
             placeholder="Event Name"
             onChange={(e) => setName(e.target.value)}
-          /><br/><br/>
-
+            required
+          />
+          
           <input
             type="email"
             value={email}
-            placeholder="your email"
+            placeholder="Your Email"
             onChange={(e) => setEmail(e.target.value)}
-          /><br/><br/>
-
+            required
+          />
+          
           <input
             type="password"
             value={password}
-            placeholder="your password"
+            placeholder="Your Password"
             onChange={(e) => setPassword(e.target.value)}
-          /><br/><br/>
+            required
+          />
         </div>
 
         <div className="submitBody-button">
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Processing..." : "Submit"}
+          </button>
         </div>
       </div>
     </form>
